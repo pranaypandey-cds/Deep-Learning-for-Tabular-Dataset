@@ -15,6 +15,3 @@ class ghost_BN(torch.nn.Module):
         chunks = x.chunk(chunk_size, dim=0)
         batch_list = [self.bn(chunk) for chunk in chunks]
         return torch.cat(batch_list, dim=0)
-
-
-pp = ghost_BN(2)
