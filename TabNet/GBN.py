@@ -11,7 +11,9 @@ class ghost_BN(torch.nn.Module):
         self.bn = BatchNorm1d(inp_dim, momentum=momentum, eps=epsilon)
 
     def forward(self,x):
+        # deciding chunk size
         chunk_size= int(np.ceil(x.shape[0]/self.virtual_batch_size))
+        # breaking into chunks
         chunks = x.chunk(chunk_size, dim=0)
         batch_list = [self.bn(chunk) for chunk in chunks]
         return torch.cat(batch_list, dim=0)
