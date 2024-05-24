@@ -5,6 +5,7 @@ from torch.nn import BatchNorm1d
 
 class ghost_BN(torch.nn.Module):
 
+    # Ghost normalization
     def __init__(self, inp_dim, virtual_batch_size = 128, momentum = 0.2, epsilon = 0.1):
         super(ghost_BN, self).__init__()
         self.virtual_batch_size = virtual_batch_size
@@ -17,3 +18,5 @@ class ghost_BN(torch.nn.Module):
         chunks = x.chunk(chunk_size, dim=0)
         batch_list = [self.bn(chunk) for chunk in chunks]
         return torch.cat(batch_list, dim=0)
+
+    
