@@ -12,4 +12,4 @@ Referenced Code - https://github.com/dreamquark-ai/tabnet.git
 
 ## Current status
 
-Currently focusing on implementing of the TabNet model for classification tasks and experiment on various datasets.
+Currently focusing on implementing the TabNet model for classification tasks and experiments on various datasets.
